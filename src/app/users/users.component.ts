@@ -3,7 +3,6 @@ import {
   OnInit
 } from '@angular/core';
 import { User } from '../user-model';
-import { usersData } from './users';
 import { UsersService } from './users-service.service';
 
 @Component({
@@ -12,13 +11,20 @@ import { UsersService } from './users-service.service';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  usersData: any = usersData;
+  public usersData: any = {};
+  public selectedUser: any;
 
-  constructor(private usersService: UsersService) {
-  }
+  constructor(private usersService: UsersService) {}
 
   ngOnInit() {
-    this.usersService.getAllUsers().subscribe((users) => console.log(users));
+    this.usersService.getAllUsers().subscribe((users) => {this.usersData = users});
   }
 
+  public onUserClicked(user: any) {
+    this.selectedUser = user;
+  }
+
+  public onUserCreated(event: any) {
+    console.log(event);
+  }
 }
