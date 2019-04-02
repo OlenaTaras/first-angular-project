@@ -1,9 +1,17 @@
-<p-panel header="List of all users">
-  <div *ngFor="let user of usersData.items">
-    <span (click)="onUserClicked(user)">{{user.fullname}}, {{user.surname}}</span>
+<div class="users-container">
+  <div class="users-list">
+    <p-panel header="List of all users">
+      <div *ngFor="let user of usersData.items">
+        <span (click)="onUserClicked(user)">{{user.fullname}}, {{user.surname}}</span>
+      </div>
+    </p-panel>
   </div>
-</p-panel>
-
-<app-user *ngIf="selectedUser" [user]="selectedUser"></app-user>
-
-<app-create-user *ngIf="visible" (createdUser)="onUserCreated($event)"></app-create-user>
+  <div class="user-container">
+    <div class="create-user">
+      <app-create-user (createdUser)="onUserCreated($event)"></app-create-user>
+    </div>
+    <div class="selected-user">
+      <app-user *ngIf="selectedUser" [user]="selectedUser"></app-user>
+    </div>
+  </div>
+</div>

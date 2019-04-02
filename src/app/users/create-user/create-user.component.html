@@ -1,8 +1,17 @@
-<div>
-  <input type="text" [(ngModel)]="userName">
-  <label>Enter name</label>
-</div><div>
-  <input type="number" [(ngModel)]="userAge">
-  <label>Enter age</label>
-</div>
-<button (click)="onUserCreated()">Create User</button>
+<p-card>
+   <div class="ui-inputgroup">
+      <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+      <input type="text" pInputText placeholder="Full name" [(ngModel)]="fullName">
+    </div>
+
+    <div class="ui-inputgroup">
+      <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+      <input type="text" pInputText placeholder="Surname" [(ngModel)]="surname">
+    </div>
+
+    <div class="ui-inputgroup">
+      <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+      <input type="text" pInputText placeholder="age" [(ngModel)]="userAge">
+    </div>
+  <button pButton type="button" label="Click" (click)="onUserCreated()"></button>
+</p-card>

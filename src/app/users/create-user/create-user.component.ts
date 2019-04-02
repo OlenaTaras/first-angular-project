@@ -7,14 +7,15 @@ import {Component, EventEmitter, Output} from '@angular/core';
 })
 export class CreateUserComponent {
   @Output() public createdUser = new EventEmitter();
-  public userName: string;
-  public userAge: number;
+  public fullName: string;
+  public userAge: string;
+  public surname: string;
 
   constructor() {}
 
   public onUserCreated() {
     const newUser = {
-      userName: this.userName, userAge: this.userAge
+      fullname: this.fullName, surname: this.surname, age: this.userAge
     };
     this.createdUser.emit(newUser);
   }

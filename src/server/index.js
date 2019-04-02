@@ -25,7 +25,7 @@ async function createUser(userObj) {
   await userData.save();
 }
 
- app.get('/users', cors(), (req, res) => {
+app.get('/users', cors(), (req, res) => {
    Users.find()
    .exec()
    .then( result => {
@@ -35,12 +35,10 @@ async function createUser(userObj) {
 })
 });
 
-app.post('/users', cors(), (req, res, next) => {
-const userData = new Users({fullname: req.body.fullname, age: req.body.age,
-  surname: req.body.surname, email: req.body.email, isWorking: req.body.isWorking});
-userData.save();
-  next();
-})
+
+app.post('/users', cors(), (req, res) => {
+  createUser(req.body);
+});
 
 
 app.listen(3000, () => console.log('Listening on port 3000...'));

@@ -18,6 +18,7 @@ import {FormsModule} from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { PanelModule } from 'primeng/panel';
 import { CardModule } from 'primeng/card';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { CardModule } from 'primeng/card';
     [RouterModule.forRoot([
       { path: '', component: AppComponent}
     ])],
+    ButtonModule,
     PanelModule,
     CardModule,
     TabMenuModule,
