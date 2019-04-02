@@ -8,6 +8,8 @@ import { UserComponent } from './user/user.component';
 import { MenuModule } from 'primeng/menu';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PanelMenuModule } from 'primeng/primeng';
+import { UsersService } from './users/users-service.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,13 @@ import { PanelMenuModule } from 'primeng/primeng';
     UserComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
     MenuModule,
     PanelMenuModule
   ],
-  providers: [],
+  providers: [UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
