@@ -11,15 +11,29 @@ import {
   PanelMenuModule,
   TabMenuModule
 } from 'primeng/primeng';
-import { UsersService } from './users/users-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateUserComponent } from './users/create-user/create-user.component';
 import {FormsModule} from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import {
+  provideRoutes,
+  RouterModule,
+  Routes
+} from '@angular/router';
 import { PanelModule } from 'primeng/panel';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 
+const routers: Routes = [
+  {
+    path: 'user', component: UsersComponent, pathMatch: 'full'
+  },
+  // {
+  //   path: 'user/:name', component: UsersComponent, pathMatch: 'full'
+  //  }
+  {
+    path: 'home', redirectTo: '/', pathMatch: 'full'
+  }
+] ;
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,9 +43,7 @@ import { ButtonModule } from 'primeng/button';
     CreateUserComponent
   ],
   imports: [
-    [RouterModule.forRoot([
-      { path: '', component: AppComponent}
-    ])],
+    [RouterModule.forRoot(routers)],
     ButtonModule,
     PanelModule,
     CardModule,
@@ -43,7 +55,7 @@ import { ButtonModule } from 'primeng/button';
     PanelMenuModule,
     FormsModule
   ],
-  providers: [UsersService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -11,6 +11,17 @@ import { MenuItem } from 'primeng/api';
 })
 export class HeaderComponent implements OnInit {
   public items: MenuItem[];
+  public menuItems = [
+    {
+      label: 'user1',
+      id: '1'
+    },
+    {
+      label: 'user2',
+      id: '2'
+    },
+    {}
+  ];
 
   constructor() {
   }

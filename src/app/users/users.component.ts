@@ -3,8 +3,8 @@ import {
   Component,
   OnInit
 } from '@angular/core';
-import {User} from '../user-model';
-import {UsersService} from './users.service';
+import { UsersService } from './users.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -16,11 +16,15 @@ export class UsersComponent implements OnInit {
   public selectedUser: any;
 
   constructor(private usersService: UsersService,
-              private cdRef: ChangeDetectorRef) {
+              private cdRef: ChangeDetectorRef,
+              private router: ActivatedRoute) {
   }
 
   ngOnInit() {
     this.getData();
+    this.router.params.subscribe((resp) => {
+      console.log(resp);
+    });
   }
 
   public onUserClicked(user: any) {
