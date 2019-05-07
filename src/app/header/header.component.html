@@ -1,9 +1,9 @@
-<!--<div *ngFor='let item of menuItems' >-->
-  <!--<span routerLink='user/{{item.id}}'-->
-    <!--routerLinkActive="active-item">{{item.label}}-->
-  <!--</span>-->
-<!--</div>-->
+<div *ngFor='let item of menuItems' >
+  <span routerLink='user/{{item.id}}'
+    routerLinkActive="active-item">{{item.label}}
+  </span>
+</div>
 
-<div routerLink="user" routerLinkActive="active-item">User</div>
-<div routerLink="home" routerLinkActive="active-item">Home</div>
+<!--<div routerLink="user" routerLinkActive="active-item">User</div>-->
+<!--<div routerLink="home" routerLinkActive="active-item">Home</div>-->
 <router-outlet></router-outlet>

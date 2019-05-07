@@ -22,8 +22,8 @@ export class UsersComponent implements OnInit {
 
   ngOnInit() {
     this.getData();
-    this.router.params.subscribe((resp) => {
-      console.log(resp);
+    this.router.params.subscribe((params) => {
+      console.log(params);
     });
   }
 

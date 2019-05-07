@@ -22,14 +22,15 @@ import {
 import { PanelModule } from 'primeng/panel';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
+import {UsersModule} from './users/users.module';
 
 const routers: Routes = [
   {
     path: 'user', component: UsersComponent, pathMatch: 'full'
   },
-  // {
-  //   path: 'user/:name', component: UsersComponent, pathMatch: 'full'
-  //  }
+  {
+    path: 'user/:id', component: UsersComponent, pathMatch: 'full'
+   },
   {
     path: 'home', redirectTo: '/', pathMatch: 'full'
   }
@@ -38,9 +39,6 @@ const routers: Routes = [
   declarations: [
     AppComponent,
     HeaderComponent,
-    UsersComponent,
-    UserComponent,
-    CreateUserComponent
   ],
   imports: [
     [RouterModule.forRoot(routers)],
@@ -51,6 +49,7 @@ const routers: Routes = [
     HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
+    UsersModule,
     MenuModule,
     PanelMenuModule,
     FormsModule
